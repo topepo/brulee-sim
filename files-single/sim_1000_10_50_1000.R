@@ -9,7 +9,7 @@ options(pillar.advice = FALSE, pillar.min_title_chars = Inf)
 
 # ------------------------------------------------------------------------------
 
-set.seed(930)
+set.seed(836)
 sim_tr <-
  sim_regression(1000) %>%
  bind_cols(sim_noise(10))
@@ -35,7 +35,7 @@ gpu_time <-
 
 res <-
  tibble::tibble(
-  seed = 930,
+  seed = 836,
   n = 1000,
   extra_cols = 10,
   hidden_units = 50,
