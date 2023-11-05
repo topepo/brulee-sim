@@ -21,9 +21,9 @@ set.seed(1)
 combinations <-
  crossing(
   seed = sample.int(1000, num_sim),
-  num_rows = 10^(2:6),
-  num_extra = c(1, 10, 100),
-  units = c(10, 50, 100),
+  num_rows = 10^(6:8),
+  num_extra = c(100, 500, 1000),
+  units = c(10, 50, 100, 1000),
   epochs = c(100, 500, 1000)
   ) %>%
  mutate(

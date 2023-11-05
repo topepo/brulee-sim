@@ -12,7 +12,7 @@ options(pillar.advice = FALSE, pillar.min_title_chars = Inf)
 set.seed(836)
 sim_tr <-
  sim_regression(1e+06) %>%
- bind_cols(sim_noise(100))
+ bind_cols(sim_noise(1e+06, num_vars = 100))
 
 # ------------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ cpu_time <-
   cpu_fit <-
    brulee_mlp(outcome ~ ., data = sim_tr,
               hidden_units = 100, epochs = 500, stop_iter = 500)
- })[3]
+ })
 
 # ------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ gpu_time <-
    brulee_mlp(outcome ~ ., data = sim_tr,
               hidden_units = 100, epochs = 500, stop_iter = 500,
               device = "mps")
- })[3]
+ })
 
 res <-
  tibble::tibble(
